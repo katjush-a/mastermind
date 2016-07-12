@@ -1,15 +1,24 @@
 class Sequence{
 
+    private char[] input;
+
     Sequence(char[] chars){
+        this.input = chars;
     }
 
-    char[] compare(Secret object){
-        return(new char[]{'b','b','b','b'});
-    }
-}
+    char[] compare(char[] sequence){
+        char[] output;
 
-class Secret{
+        output = new char[4];
 
-    Secret(char[] chars){
+        for(int i = 0;i <= 3;i++){
+            if(sequence[i] == input[i]){
+                output[i] = 'b';
+            } else {
+                output[i] = '0';
+            }
+        }
+
+        return output;
     }
 }
