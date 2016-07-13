@@ -7,18 +7,21 @@ class Sequence{
     }
 
     char[] compare(char[] sequence){
-        char[] output;
+        char[] output = {'0','0','0','0'};
 
-        output = new char[4];
+        for(int i = 0; i < 4; i++) {
 
-        for(int i = 0;i <= 3;i++){
             if(sequence[i] == input[i]){
-                output[i] = 'b';
+                output[i] = 'B';
             } else {
-                output[i] = '0';
+                for(int j = 0;j < 4;j++){
+                    if(sequence[i] == input[j]
+                            && i != j){
+                        output[i] = 'W';
+                    }
+                }
             }
         }
-
         return output;
     }
 }

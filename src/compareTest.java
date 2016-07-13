@@ -7,7 +7,7 @@ public class compareTest {
     public void allTrueReturnsAllBlack(){
         Sequence sequence = new Sequence(new char[]{'r','r','r','r'});
         char[] secret = new char[]{'r','r','r','r'};
-        assertArrayEquals(new char[]{'b','b','b','b'}, sequence.compare(secret));
+        assertArrayEquals(new char[]{'B','B','B','B'}, sequence.compare(secret));
     }
 
     @Test
@@ -15,5 +15,12 @@ public class compareTest {
         Sequence sequence = new Sequence(new char[]{'r','r','r','r'});
         char[] secret = new char[]{'g','g','g','g'};
         assertArrayEquals(new char[]{'0','0','0','0'}, sequence.compare(secret));
+    }
+
+    @Test
+    public void OneCloseReturnsOneWhite(){
+        Sequence sequence = new Sequence(new char[]{'r','o','o','o'});
+        char[] secret = new char[]{'g','r','g','g'};
+        assertArrayEquals(new char[]{'0','W','0','0'}, sequence.compare(secret));
     }
 }
