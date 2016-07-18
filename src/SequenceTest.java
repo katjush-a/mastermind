@@ -1,15 +1,32 @@
 import static org.junit.Assert.*;
 import org.junit.Test;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
-public class compareTest {
+public class SequenceTest {
 
     @Test
     public void AllCorrectReturnsAllBlack(){
-        Sequence sequence = new Sequence(new char[]{'r','r','r','r'});
-        char[] secret = new char[]{'r','r','r','r'};
-        assertArrayEquals(new char[]{'B','B','B','B'}, sequence.compare(secret));
-    }
+        List<String> guess = new ArrayList<>(
+                Arrays.asList(Colors.red,Colors.red,Colors.red,Colors.red)
+        );
 
+        List<String> answer = new ArrayList<>(
+                Arrays.asList(Colors.red,Colors.red,Colors.red,Colors.red)
+        );
+
+        Sequence sequence = new Sequence(answer, guess);
+
+        List<String> expected = new ArrayList<>(
+                Arrays.asList(Colors.black, Colors.black, Colors.black, Colors.black)
+        );
+
+        List<String> actual = sequence.getComparison();
+
+        assertEquals(expected, actual);
+    }
+/*
     @Test
     public void AllWrongReturnsAllBlank(){
         Sequence sequence = new Sequence(new char[]{'r','r','r','r'});
@@ -64,5 +81,5 @@ public class compareTest {
         Sequence sequence = new Sequence(new char[]{'b','p','r','g'});
         char[] secret = new char[]{'r','g','p','b'};
         assertArrayEquals(new char[]{'W','W','W','W'}, sequence.compare(secret));
-    }
+    }*/
 }
