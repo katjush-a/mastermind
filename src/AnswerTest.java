@@ -21,9 +21,9 @@ class TestRandomnessSource extends RandomnessSource {
     public int getRandom(){
         return 7;
     }
-    /*
-    @Test
-    public void generatesAnswer(){
-        Answer answer = new Answer;
-    }*/
+
+    //@Test
+    //public void generatesAnswer(){
+    //    Answer answer = new Answer;
+    //}
 }
