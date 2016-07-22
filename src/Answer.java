@@ -5,11 +5,14 @@ import java.util.List;
 
 class Answer {
 
-    RandomnessSource randomness;
+    static int MAX_ANSWER_LENGTH = 4;
+
+    private RandomnessSource randomness;
 
     Answer(){
         this.randomness = new RandomnessSource(this.colors.size());
     }
+
     Answer(RandomnessSource randomness){
         this.randomness = randomness;
     }
@@ -24,6 +27,16 @@ class Answer {
                     Colors.orange,
                     Colors.purple)
     );
+
+    List<String> generateRandom(){
+        List<String> answers = new ArrayList<>();
+
+        for(int i = 0;i < MAX_ANSWER_LENGTH;i++){
+            answers.add(colors.get(this.randomness.getRandom()));
+        }
+
+        return answers;
+    }
 }
 
 class RandomnessSource {
