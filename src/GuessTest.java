@@ -9,6 +9,11 @@ public class GuessTest{
 
     @Test
     public void guessHasResponse(){
-        
+        PegSequence answer = new PegSequence(Colors.red,Colors.red,Colors.red,Colors.red);
+        Guess guess = new Guess(new PegSequence(Colors.red,Colors.red,Colors.red,Colors.red));
+
+        PegSequence expected = new PegSequence(Colors.black,Colors.black,Colors.black,Colors.black);
+
+        assertEquals(guess.setResponse(answer), expected);
     }
 }

@@ -1,39 +1,36 @@
-import java.util.ArrayList;
-import java.util.List;
-
 class Sequence{
-    private List<String> answer, guess;
+    private PegSequence answer, guess;
 
-    Sequence(List<String> answer, List<String> guess) {
+    Sequence(PegSequence answer, PegSequence guess) {
         this.answer = answer;
         this.guess = guess;
     }
 
-    List<String> getComparison(){
-        List<String> perfectMatches = new ArrayList<>();
-        List<String> partialMatches = new ArrayList<>();
+    PegSequence getComparison(){
+        PegSequence perfectMatches = new PegSequence();
+        PegSequence partialMatches = new PegSequence();
 
         this.detectMatches(perfectMatches, partialMatches);
         return this.buildResponse(perfectMatches, partialMatches);
     }
 
-    private void detectMatches(List<String> perfect, List<String> partial){
-        this.guess.forEach(pin -> {
-            int position = this.guess.indexOf(pin);
+    private void detectMatches(PegSequence perfect, PegSequence partial){
+        this.guess.getPegs().forEach(pin -> {
+            int position = this.guess.getPegs().indexOf(pin);
 
-            if (this.answer.get(position).equals(pin)){
-                perfect.add(Colors.black);
-            } else if (this.answer.contains(pin)){
-                partial.add(Colors.white);
+            if (this.answer.getPegs().get(position).equals(pin)){
+                perfect.getPegs().add(Colors.black);
+            } else if (this.answer.getPegs().contains(pin)){
+                partial.getPegs().add(Colors.white);
             }
         });
     }
 
-    private List<String> buildResponse(List<String> perfect, List<String> partial){
-        List<String> response = new ArrayList<>();
-        response.addAll(perfect);
-        response.addAll(partial);
-        while (response.size() < Answer.MAX_ANSWER_LENGTH){response.add("0"); }
+    private PegSequence buildResponse(PegSequence perfect, PegSequence partial){
+
+        PegSequence response = new PegSequence(perfect, partial);
+
+        while (response.getPegs().size() < Answer.MAX_ANSWER_LENGTH){response.getPegs().add("0"); }
         return response;
     }
 }
