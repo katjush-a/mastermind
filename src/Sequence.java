@@ -33,7 +33,7 @@ class Sequence{
         List<String> response = new ArrayList<>();
         response.addAll(perfect);
         response.addAll(partial);
-        while (response.size() < 4){response.add("0"); }
+        while (response.size() < Answer.MAX_ANSWER_LENGTH){response.add("0"); }
         return response;
     }
 }

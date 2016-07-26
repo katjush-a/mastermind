@@ -9,12 +9,12 @@ class Answer {
 
     private RandomnessSource randomness;
 
-    Answer(){
-        this.randomness = new RandomnessSource(this.colors.size());
-    }
-
     Answer(RandomnessSource randomness){
         this.randomness = randomness;
+    }
+
+    Answer(){
+        this.randomness = new RandomnessSource(this.colors.size());
     }
 
     private List<String> colors = new ArrayList<>(

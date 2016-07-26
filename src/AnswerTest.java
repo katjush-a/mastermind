@@ -23,9 +23,9 @@ public class AnswerTest {
         RandomnessSource source = new TestRandomnessSource(4, 2, 3, 1);
         Answer answer = new Answer(source);
 
-        List<String> expected = new ArrayList<>(
-                Arrays.asList(Colors.green,Colors.red,Colors.blue,Colors.white)
-        );
+        List<String> expected = new PegSequence(
+                Colors.green,Colors.red,Colors.blue,Colors.white
+        ).getPegs();
 
         assertEquals(expected, answer.generateRandom());
     }
@@ -35,9 +35,9 @@ public class AnswerTest {
         RandomnessSource source = new TestRandomnessSource(5, 3, 6, 1);
         Answer answer = new Answer(source);
 
-        List<String> expected = new ArrayList<>(
-                Arrays.asList(Colors.orange,Colors.blue,Colors.purple,Colors.white)
-        );
+        List<String> expected = new PegSequence(
+                Colors.orange,Colors.blue,Colors.purple,Colors.white
+        ).getPegs();
 
         assertEquals(expected, answer.generateRandom());
     }
@@ -47,15 +47,13 @@ public class AnswerTest {
 class TestRandomnessSource extends RandomnessSource {
 
     private ArrayList<Integer> numbers;
-    int iterator = -1;
+    private int iterator = -1;
 
     TestRandomnessSource(int first, int second, int third, int fourth) {
         super(1);
-        this.numbers = new ArrayList<Integer>();
-        numbers.add(first);
-        numbers.add(second);
-        numbers.add(third);
-        numbers.add(fourth);
+        this.numbers = new ArrayList<>(
+                Arrays.asList(first, second, third, fourth)
+        );
     }
 
     @Override
