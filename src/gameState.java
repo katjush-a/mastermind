@@ -1,10 +1,9 @@
 import java.util.ArrayList;
 import java.util.List;
 
-/*
-List<Guess> guesses = new ArrayList<>();
+class GameState{
 
-while(guesses.size <= 10){
-    ...
+    List<Guess> guesses = new ArrayList<>();
+
+
 }
- */

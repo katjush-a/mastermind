@@ -197,6 +197,6 @@ public class SequenceTest {
 
         PegSequence actual = sequence.getComparison();
 
-        assertEquals(expected.getPegs(), actual.getPegs());
+        assertEquals(expected.getPegs(), actual.getPegs() );
     }
 }
