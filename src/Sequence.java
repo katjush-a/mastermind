@@ -15,6 +15,7 @@ class Sequence{
     }
 
     private void detectMatches(PegSequence perfect, PegSequence partial){
+
         this.guess.getPegs().forEach(pin -> {
             int position = this.guess.getPegs().indexOf(pin);
 
@@ -30,7 +31,7 @@ class Sequence{
 
         PegSequence response = new PegSequence(perfect, partial);
 
-        while (response.getPegs().size() < Answer.MAX_ANSWER_LENGTH){response.getPegs().add("0"); }
+        while (response.getPegs().size() < Answer.MAX_ANSWER_LENGTH){response.getPegs().add(Colors.nil); }
         return response;
     }
 }

@@ -6,6 +6,7 @@ public class SequenceTest {
     @Test
     public void AllCorrectReturnsAllBlack(){
         PegSequence guess = new PegSequence(
+
                 Colors.red,Colors.red,Colors.red,Colors.red
         );
 

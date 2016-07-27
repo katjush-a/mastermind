@@ -28,11 +28,11 @@ class Answer {
                     Colors.purple)
     );
 
-    List<String> generateRandom(){
-        List<String> answers = new ArrayList<>();
+    PegSequence generateRandom(){
+        PegSequence answers = new PegSequence();
 
         for(int i = 0;i < MAX_ANSWER_LENGTH;i++){
-            answers.add(colors.get(this.randomness.getRandom()));
+            answers.getPegs().add(colors.get(this.randomness.getRandom()));
         }
 
         return answers;

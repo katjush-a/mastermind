@@ -23,11 +23,11 @@ public class AnswerTest {
         RandomnessSource source = new TestRandomnessSource(4, 2, 3, 1);
         Answer answer = new Answer(source);
 
-        List<String> expected = new PegSequence(
+        PegSequence expected = new PegSequence(
                 Colors.green,Colors.red,Colors.blue,Colors.white
-        ).getPegs();
+        );
 
-        assertEquals(expected, answer.generateRandom());
+        assertEquals(expected.getPegs(), answer.generateRandom().getPegs());
     }
 
     @Test
@@ -35,11 +35,11 @@ public class AnswerTest {
         RandomnessSource source = new TestRandomnessSource(5, 3, 6, 1);
         Answer answer = new Answer(source);
 
-        List<String> expected = new PegSequence(
+        PegSequence expected = new PegSequence(
                 Colors.orange,Colors.blue,Colors.purple,Colors.white
-        ).getPegs();
+        );
 
-        assertEquals(expected, answer.generateRandom());
+        assertEquals(expected.getPegs(), answer.generateRandom().getPegs());
     }
 }
 
