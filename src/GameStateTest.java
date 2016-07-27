@@ -1,8 +1,5 @@
 import org.junit.Test;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import static org.junit.Assert.*;
 
 public class GameStateTest {
@@ -11,7 +8,7 @@ public class GameStateTest {
     public void noGuessesAtStart(){
         GameState gameState = new GameState();
 
-        assertEquals(0, gameState.guesses.size());
+        assertEquals(0, gameState.getGuesses().size());
     }
 
     @Test
@@ -21,14 +18,14 @@ public class GameStateTest {
 
         gameState.addGuess(guess);
 
-        assertEquals(1, gameState.guesses.size());
+        assertEquals(1, gameState.getGuesses().size());
     }
 
     @Test
     public void assertGameIsGoing(){
         GameState gameState = new GameState();
 
-        assertTrue(gameState.inProgress);
+        assertTrue(gameState.isInProgress());
     }
 
     @Test
@@ -38,6 +35,6 @@ public class GameStateTest {
         for (int i = 0; i <= 10; i++) {
             gameState.addGuess(guess);
         }
-        assertFalse(gameState.inProgress);
+        assertFalse(gameState.isInProgress());
     }
 }
