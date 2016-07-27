@@ -16,6 +16,6 @@ class GameState{
         Sequence seq = new Sequence(this.answer, guess.getSequence());
         guess.setResponse(seq.getComparison());
         this.inProgress = (guess.isCorrect() || guesses.size() <= 10);
-
     }
+
 }

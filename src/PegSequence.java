@@ -5,26 +5,17 @@ import java.util.List;
 class PegSequence {
     private List<String> pegs;
 
-    PegSequence(String first, String second,
-                String third, String fourth){
-        this.pegs = new ArrayList<>(
-                Arrays.asList(first, second, third, fourth)
-        );
+    PegSequence(String... pegs) {
+        this.pegs = new ArrayList<>(Arrays.asList(pegs));
     }
 
-    PegSequence(){
-        this.pegs = new ArrayList<>();
-    }
-
-    PegSequence(PegSequence first, PegSequence second){
+    PegSequence(PegSequence first, PegSequence second) {
         this.pegs = new ArrayList<>();
         pegs.addAll(first.getPegs());
         pegs.addAll(second.getPegs());
     }
 
-
-
-    List<String> getPegs(){
+    List<String> getPegs() {
         return this.pegs;
     }
 }
