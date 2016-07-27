@@ -1,9 +1,8 @@
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-public class PegSequence {
+class PegSequence {
     private List<String> pegs;
 
     PegSequence(String first, String second,
@@ -23,7 +22,7 @@ public class PegSequence {
         pegs.addAll(second.getPegs());
     }
 
-    public List<String> getPegs(){
+    List<String> getPegs(){
         return this.pegs;
     }
 }
