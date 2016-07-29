@@ -1,6 +1,7 @@
 import java.util.ArrayList;
 
 class GameState{
+    private int MAX_GUESSES = 10;
     private ArrayList<Guess> guesses = new ArrayList<>();
     private PegSequence answer;
 
@@ -26,10 +27,10 @@ class GameState{
     }
 
     boolean isLost(){
-        return !guesses.stream().anyMatch(Guess::isCorrect) && guesses.size() > 10;
+        return !isWon() && guesses.size() >= MAX_GUESSES;
     }
 
     boolean isInProgress(){
-        return !isWon() && this.guesses.size() <= 10;
+        return !isWon() && !isLost() && this.guesses.size() <= MAX_GUESSES;
     }
 }

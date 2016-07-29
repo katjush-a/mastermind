@@ -63,7 +63,7 @@ public class GameStateTest {
         Guess guess = new Guess(new PegSequence(Colors.blue,Colors.blue,Colors.blue,Colors.blue));
         GameState gameState = new GameState(answer);
 
-        for(int i = 0;i <= 10;i++){
+        for(int i = 0;i < 10;i++){
             gameState.addGuess(guess);
         }
 
@@ -80,6 +80,19 @@ public class GameStateTest {
 
         assertTrue(gameState.isWon());
         assertFalse(gameState.isLost());
+    }
+
+    @Test
+    public void noCorrectAtTenGuessesLoses(){
+        PegSequence answer = new PegSequence(Colors.red,Colors.red,Colors.red,Colors.red);
+        Guess guess = new Guess(new PegSequence(Colors.blue,Colors.blue,Colors.blue,Colors.blue));
+        GameState gameState = new GameState(answer);
+
+        for(int i = 0;i <= 10;i++){
+            gameState.addGuess(guess);
+        }
+
+        assertTrue(gameState.isLost());
     }
 
     @Test
