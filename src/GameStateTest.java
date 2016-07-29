@@ -81,44 +81,39 @@ public class GameStateTest {
         assertTrue(gameState.isWon());
         assertFalse(gameState.isLost());
     }
-/*
+
     @Test
-    public void assertGameIsGoing() {
-        GameState gameState = new GameState();
+    public void gameIsWonSoIsNotInProgress(){
+        PegSequence answer = new PegSequence(Colors.red,Colors.red,Colors.red,Colors.red);
+        Guess guess = new Guess(new PegSequence(Colors.red,Colors.red,Colors.red,Colors.red));
+        GameState gameState = new GameState(answer);
+
+        gameState.addGuess(guess);
+
+        assertFalse(gameState.isInProgress());
+    }
+
+    @Test
+    public void gameIsGoingSoIsInProgress(){
+        PegSequence answer = new PegSequence(Colors.red,Colors.red,Colors.red,Colors.red);
         Guess guess = new Guess(new PegSequence(Colors.blue,Colors.blue,Colors.blue,Colors.blue));
+        GameState gameState = new GameState(answer);
+
         gameState.addGuess(guess);
 
         assertTrue(gameState.isInProgress());
     }
 
     @Test
-    public void assertGameIsOver() {
-        GameState gameState = new GameState();
+    public void gameHasTenGuessesSoIsNotInProgress(){
+        PegSequence answer = new PegSequence(Colors.red,Colors.red,Colors.red,Colors.red);
         Guess guess = new Guess(new PegSequence(Colors.blue,Colors.blue,Colors.blue,Colors.blue));
-        for (int i = 0; i <= 10; i++) {
+        GameState gameState = new GameState(answer);
+
+        for(int i = 0;i <= 10; i++){
             gameState.addGuess(guess);
         }
 
         assertFalse(gameState.isInProgress());
     }
-
-    @Test
-    public void whileGameIsPlayingWonIsFalse() {
-        GameState gameState = new GameState();
-        Guess guess = new Guess(new PegSequence(Colors.blue,Colors.blue,Colors.blue,Colors.blue));
-        gameState.addGuess(guess);
-
-        assertFalse(gameState.isInProgress() == gameState.isWon());
-    }
-
-    @Test
-    public void whileGameNotInProgressAndGuessIsCorrectWonIsTrue(){
-        PegSequence answer = new PegSequence(Colors.blue,Colors.blue,Colors.blue,Colors.blue);
-        GameState gameState = new GameState(answer);
-        Guess guess = new Guess(new PegSequence(Colors.blue,Colors.blue,Colors.blue,Colors.blue));
-        gameState.addGuess(guess);
-
-        assertFalse(gameState.isInProgress());
-        //assertTrue(gameState.isWon());
-    }*/
 }

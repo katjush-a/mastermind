@@ -20,17 +20,16 @@ class GameState{
         Sequence seq = new Sequence(this.answer, guess.getSequence());
         guess.setResponse(seq.getComparison());
     }
-/*
-    boolean isInProgress() {
-        return (guesses.get(lastElement).isCorrect() || guesses.size() <= 10);
-        return true;
-    }
-*/
+
     boolean isWon() {
         return guesses.stream().anyMatch(Guess::isCorrect);
     }
 
     boolean isLost(){
         return !guesses.stream().anyMatch(Guess::isCorrect) && guesses.size() > 10;
+    }
+
+    boolean isInProgress(){
+        return !isWon() && this.guesses.size() <= 10;
     }
 }
