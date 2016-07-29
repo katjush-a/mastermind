@@ -56,6 +56,31 @@ public class GameStateTest {
 
         assertTrue(gameState.isWon());
     }
+
+    @Test
+    public void noCorrectMoreThanTenLoses(){
+        PegSequence answer = new PegSequence(Colors.red,Colors.red,Colors.red,Colors.red);
+        Guess guess = new Guess(new PegSequence(Colors.blue,Colors.blue,Colors.blue,Colors.blue));
+        GameState gameState = new GameState(answer);
+
+        for(int i = 0;i <= 10;i++){
+            gameState.addGuess(guess);
+        }
+
+        assertTrue(gameState.isLost());
+    }
+
+    @Test
+    public void gameIsWonLostIsFalse(){
+        PegSequence answer = new PegSequence(Colors.red,Colors.red,Colors.red,Colors.red);
+        Guess guess = new Guess(new PegSequence(Colors.red,Colors.red,Colors.red,Colors.red));
+        GameState gameState = new GameState(answer);
+
+        gameState.addGuess(guess);
+
+        assertTrue(gameState.isWon());
+        assertFalse(gameState.isLost());
+    }
 /*
     @Test
     public void assertGameIsGoing() {

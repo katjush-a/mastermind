@@ -29,4 +29,8 @@ class GameState{
     boolean isWon() {
         return guesses.stream().anyMatch(Guess::isCorrect);
     }
+
+    boolean isLost(){
+        return !guesses.stream().anyMatch(Guess::isCorrect) && guesses.size() > 10;
+    }
 }
